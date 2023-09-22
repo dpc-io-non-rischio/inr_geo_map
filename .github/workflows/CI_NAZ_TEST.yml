@@ -20,7 +20,7 @@ jobs:
       with:
         source_folder: 'piazze_nazionali'
         destination_repo: 'geosdi/ran-test'
-        destination_folder: 'test_iononrischio'
+        destination_folder: 'test_iononrischio/piazze_nazionali'
         destination_branch: 'main'
         user_email: 'assistenza@gestionaleinr.it'
         user_name: 'dpc-io-non-rischio'
