@@ -19,7 +19,7 @@ jobs:
 
     - name: Clone Repository di Partenza
       run: |
-        git clone https://github.com/inr_geo_map/piazze_nazionali.git source-repo
+        git clone https://github.com/dpc-io-non-rischio/inr_geo_map/piazze_nazionali.git source-repo
       working-directory: ${{ github.workspace }}
 
     - name: Copia Contenuti
