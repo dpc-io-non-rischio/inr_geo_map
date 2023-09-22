@@ -2,7 +2,7 @@
 name: TEST NAZ - copy repo to geosdi/ran-test/test_iononrischio
 
 on:
-  push:
+  create:
     branches:
       - main
 
