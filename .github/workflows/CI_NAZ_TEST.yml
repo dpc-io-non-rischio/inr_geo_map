@@ -21,6 +21,7 @@ jobs:
         source_folder: 'piazze_nazionali'
         destination_repo: 'geosdi/ran-test'
         destination_folder: 'test_iononrischio'
+        destination_branch: 'main'
         user_email: 'assistenza@gestionaleinr.it'
         user_name: 'dpc-io-non-rischio'
         commit_msg: '[INR] Update National places for map'
