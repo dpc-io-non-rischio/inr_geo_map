@@ -14,7 +14,7 @@ jobs:
     - name: Checkout Repository di Destinazione
       uses: actions/checkout@v2
       with:
-        repository: geosdi/ran-test/test_iononrischio.git
+        repository: geosdi/ran-test/tree/main/test_iononrischio
         path: target-repo
 
     - name: Clone Repository di Partenza
