@@ -1,0 +1,39 @@
+# This action copy data to Repo geosdi/ran-test
+name: TEST - copy repo to geosdi/ran-test/test_iononrischio
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync_repo:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository di Destinazione
+      uses: actions/checkout@v2
+      with:
+        repository: geosdi/ran-test/test_iononrischio
+        path: target-repo
+
+    - name: Clone Repository di Partenza
+      run: |
+        git clone https://github.com/inr_geo_map/piazze_nazionali.git source-repo
+      working-directory: ${{ github.workspace }}
+
+    - name: Copia Contenuti
+      run: |
+        cp -r source-repo/* target-repo/
+      working-directory: ${{ github.workspace }}
+
+    - name: Commit e Push Cambiamenti
+      run: |
+        cd target-repo
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add .
+        git commit -m "Aggiornamento piazze Nazionali"
+        git push
+      working-directory: ${{ github.workspace }}
+
