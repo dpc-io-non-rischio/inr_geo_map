@@ -32,7 +32,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_folder: 'piazze_nazionali'
+        source_folder: 'piazze_nazionali/2022'
         destination_repo: 'geosdi/ran-test'
         destination_folder: 'test_iononrischio/piazze_nazionali/2022/data'
         destination_branch: 'main'
