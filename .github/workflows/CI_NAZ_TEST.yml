@@ -1,5 +1,5 @@
 # This action copy data to Repo geosdi/ran-test
-name: TEST - copy repo to geosdi/ran-test/test_iononrischio
+name: TEST NAZ - copy repo to geosdi/ran-test/test_iononrischio
 
 on:
   push:
