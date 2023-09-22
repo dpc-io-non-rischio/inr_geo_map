@@ -7,33 +7,20 @@ on:
       - main
 
 jobs:
-  sync_repo:
+  copy-file:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repository di Destinazione
+    - name: Checkout
       uses: actions/checkout@v2
+
+    - name: Pushes test folder
+      uses: datalbry/copy_folder_to_another_repo_action@1.0.0
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        repository: geosdi/ran-test/tree/main/test_iononrischio
-        path: target-repo
-
-    - name: Clone Repository di Partenza
-      run: |
-        git clone https://github.com/dpc-io-non-rischio/inr_geo_map/piazze_nazionali.git source-repo
-      working-directory: ${{ github.workspace }}
-
-    - name: Copia Contenuti
-      run: |
-        cp -r source-repo/* target-repo/
-      working-directory: ${{ github.workspace }}
-
-    - name: Commit e Push Cambiamenti
-      run: |
-        cd target-repo
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add .
-        git commit -m "Aggiornamento piazze Nazionali"
-        git push
-      working-directory: ${{ github.workspace }}
-
+        source_folder: 'piazze_nazionali'
+        destination_repo: 'geosdi/ran-test'
+        destination_folder: 'test_iononrischio'
+        user_email: 'assistenza@gestionaleinr.it'
+        user_name: 'dpc-io-non-rischio'
+        commit_msg: '[INR] Update National places for map'
