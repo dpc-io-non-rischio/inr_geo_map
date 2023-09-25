@@ -17,18 +17,14 @@ jobs:
       id: commit_message
       run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
 
-    - name: Test commit message
-      id: test
-      run: echo ${{ steps.commit_message.outputs.message }}
-
     - name: Pushes test folder
       uses: datalbry/copy_folder_to_another_repo_action@1.0.0
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_folder: 'piazze_nazionali/2022'
+        source_folder: 'piazze_nazionali/${{ steps.commit_message.outputs.message }}'
         destination_repo: 'geosdi/ran-test'
-        destination_folder: 'test_iononrischio/piazze_nazionali/2022/data'
+        destination_folder: 'test_iononrischio/piazze_nazionali/${{ steps.commit_message.outputs.message }}/data'
         destination_branch: 'main'
         user_email: 'assistenza@gestionaleinr.it'
         user_name: 'dpc-io-non-rischio'
