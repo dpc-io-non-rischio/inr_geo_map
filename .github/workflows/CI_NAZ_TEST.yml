@@ -21,7 +21,8 @@ jobs:
     - name: Check for "Caricamento" in Commit Message
       id: check_caricamento
       run: |
-        if [[ "${{ steps.commit_message.outputs.message }}" == *"Caricamento"* ]]; then
+        # if [[ "${{ steps.commit_message.outputs.message }}" == *"Caricamento"* ]]; then
+        if [[ "${{ steps.commit_message.name }}" == *"Caricamento"* ]]; then
           echo "Commit message contains 'Caricamento'. Proceeding with the workflow."
         else
           echo "Commit message does not contain 'Caricamento'. Exiting."
