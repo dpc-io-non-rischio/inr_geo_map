@@ -15,7 +15,7 @@ jobs:
 
     - name: Get Commit Message
       id: commit_message
-      run: echo "::set-output name=message::$(git log -1 --pretty=%B)"
+      run: echo "name=message::$(git log -1 --pretty=%B)" >> $GITHUB_ENV
 
     - name: Check for "Caricamento" in Commit Message
       id: check_caricamento
