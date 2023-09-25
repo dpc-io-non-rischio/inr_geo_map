@@ -13,10 +13,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Get Commit Message
-      id: commit_message
-      run: echo "name=message::$(git log -1 --pretty=%B)" >> $GITHUB_ENV
-
     - name: Check for "Caricamento" in Commit Message
       id: check_caricamento
       run: |
