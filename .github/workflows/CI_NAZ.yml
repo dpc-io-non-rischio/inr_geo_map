@@ -15,6 +15,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Verifica la presenza di un tag
+      run: |
+            if [[ "${{ github.ref }}" != "refs/tags/"* ]]; then
+              echo "Errore: Tag mancante."
+              exit 1
+            fi
+
     - name: Get Commit Message
       id: commit_message
       run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
