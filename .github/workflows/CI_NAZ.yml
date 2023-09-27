@@ -18,7 +18,7 @@ jobs:
     - name: Verifica la presenza di un tag
       run: |
             if [[ "${{ github.ref }}" != "refs/tags/"* ]]; then
-              echo "Errore: Tag mancante."
+              echo "Errore: Tag mancante pull non valido."
               exit 1
             fi
 
