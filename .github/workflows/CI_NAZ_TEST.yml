@@ -25,9 +25,9 @@ jobs:
       with:
         source-files: 'giornate_nazionali/${{ steps.commit_message.outputs.message }}/data/'
         destination-username: 'geosdi'
-        destination-repository: 'ran-test.github.io'
+        destination-repository: 'ran-test'
         destination-branch: 'main'
-        destination-directory: 'test_iononrischio/piazze_nazionali/${{ steps.commit_message.outputs.message }}/data/'
+        destination-directory: 'test_iononrischio/piazze_nazionali/${{ steps.commit_message.outputs.message }}/data'
         commit-username: 'dpc-io-non-rischio'
         commit-email: 'assistenza@gestionaleinr.it'
         commit-message: '[INR] Update National places for map'
