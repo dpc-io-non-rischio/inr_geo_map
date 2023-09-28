@@ -1,0 +1,32 @@
+# This action copy data to Repo pcm-dpc/DPC-Mappe
+name: Giornate Nazionali - copy repo to pcm-dpc/DPC-Mappeiononrischio
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Get Commit Message
+      id: commit_message
+      run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+
+    - name: Copy files to another repository
+      uses: nkoppel/push-files-to-another-repository@v1.1.0
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source-files: 'giornate_nazionali/${{ steps.commit_message.outputs.message }}/data/iononrischio_map_data.geojson'
+        destination-username: 'pcm-dpc'
+        destination-repository: 'DPC-Mappe'
+        destination-branch: 'master'
+        destination-directory: 'iononrischio/giornate-nazionali/${{ steps.commit_message.outputs.message }}/data'
+        commit-username: 'dpc-io-non-rischio'
+        commit-email: 'assistenza@gestionaleinr.it'
+        commit-message: '[INR] Update National places for map'
