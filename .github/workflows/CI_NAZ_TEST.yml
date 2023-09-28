@@ -17,8 +17,9 @@ jobs:
       id: commit_message
       run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
 
-    - name: Pushes test folder
-      uses: nkoppel/push-files-to-another-repository@1.1.1
+    - name: Copy files to another repository
+      uses: nkoppel/push-files-to-another-repository@v1.1.1
+            
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
