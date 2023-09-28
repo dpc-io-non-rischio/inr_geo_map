@@ -18,12 +18,11 @@ jobs:
       run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
 
     - name: Copy files to another repository
-      uses: nkoppel/push-files-to-another-repository@v1.1.1
-            
+      uses: nkoppel/push-files-to-another-repository@v1.1.0
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-files: 'giornate_nazionali/${{ steps.commit_message.outputs.message }}/data/'
+        source-files: 'giornate_nazionali/${{ steps.commit_message.outputs.message }}/data/iononrischio_map_data.geojson'
         destination-username: 'geosdi'
         destination-repository: 'ran-test'
         destination-branch: 'main'
