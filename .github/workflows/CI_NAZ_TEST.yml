@@ -24,8 +24,8 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source-files: 'giornate_nazionali/${{ steps.commit_message.outputs.message }}/data/'
-        destination-username: 'dpc-io-non-rischio'
-        destination-repository: 'geosdi/ran-test'
+        destination-username: 'geosdi'
+        destination-repository: 'ran-test'
         destination-branch: 'main'
         destination-directory: 'test_iononrischio/piazze_nazionali/${{ steps.commit_message.outputs.message }}/data/'
         commit-username: 'dpc-io-non-rischio'
