@@ -18,11 +18,11 @@ jobs:
       run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
 
     - name: Pushes test folder
-      uses: datalbry/copy_folder_to_another_repo_action@1.0.0
+      uses: nkoppel/push-files-to-another-repository@1.1.0
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_folder: 'piazze_nazionali/${{ steps.commit_message.outputs.message }}'
+        source_folder: 'giornate_nazionali/${{ steps.commit_message.outputs.message }}/data/iononrischio_map_data.geojson'
         destination_repo: 'geosdi/ran-test'
         destination_folder: 'test_iononrischio/piazze_nazionali/${{ steps.commit_message.outputs.message }}/data'
         destination_branch: 'main'
