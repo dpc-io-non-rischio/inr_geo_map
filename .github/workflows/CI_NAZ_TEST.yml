@@ -23,10 +23,11 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_files: 'giornate_nazionali/${{ steps.commit_message.outputs.message }}/data/iononrischio_map_data.geojson'
-        destination_repo: 'geosdi/ran-test'
-        destination_folder: 'test_iononrischio/piazze_nazionali/${{ steps.commit_message.outputs.message }}/data'
-        destination_branch: 'main'
-        user_email: 'assistenza@gestionaleinr.it'
-        user_name: 'dpc-io-non-rischio'
-        commit_msg: '[INR] Update National places for map'
+        source-files: 'giornate_nazionali/${{ steps.commit_message.outputs.message }}/data/'
+        destination-username: 'dpc-io-non-rischio'
+        destination-repository: 'geosdi/ran-test'
+        destination-branch: 'main'
+        destination-directory: 'test_iononrischio/piazze_nazionali/${{ steps.commit_message.outputs.message }}/data/'
+        commit-username: 'dpc-io-non-rischio'
+        commit-email: 'assistenza@gestionaleinr.it'
+        commit-message: '[INR] Update National places for map'
