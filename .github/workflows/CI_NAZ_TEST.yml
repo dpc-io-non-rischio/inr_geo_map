@@ -18,7 +18,7 @@ jobs:
       run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
 
     - name: Copy files to another repository
-      uses: nkoppel/push-files-to-another-repository@v1.1.1
+      uses: nkoppel/push-files-to-another-repository@v1.1.0
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
